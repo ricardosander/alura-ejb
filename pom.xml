@@ -15,6 +15,15 @@
 
     <dependencies>
 
+        <!-- https://mvnrepository.com/artifact/javax.ejb/ejb-api -->
+        <dependency>
+            <groupId>javax.ejb</groupId>
+            <artifactId>ejb-api</artifactId>
+            <version>3.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+
         <!-- Expression Language API (2.1 Maintenance Release) -->
         <dependency>
             <groupId>javax.el</groupId>

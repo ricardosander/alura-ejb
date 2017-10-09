@@ -4,7 +4,9 @@ import java.util.List;
 
 import br.com.caelum.livraria.modelo.Livro;
 
+import javax.ejb.Stateless;
 
+@Stateless
 public class LivroDao {
 
 	private Banco banco = new Banco();

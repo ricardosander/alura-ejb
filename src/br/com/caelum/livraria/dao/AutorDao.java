@@ -6,13 +6,14 @@ import br.com.caelum.livraria.modelo.Autor;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
-import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 @Stateless
 public class AutorDao {
 
-    @Inject
-    private Banco banco;
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @PostConstruct
     void aposCriacao() {
@@ -23,18 +24,17 @@ public class AutorDao {
 
         System.out.println("[INFO] salvando autor " + autor.getNome() + ".");
 
-        banco.save(autor);
+        entityManager.persist(autor);
 
         System.out.println("[INFO] autor " + autor.getNome() + " salvo.");
     }
 
     public List<Autor> todosAutores() {
-        return banco.listaAutores();
+        return entityManager.createQuery("select a from Autor a", Autor.class).getResultList();
     }
 
     public Autor buscaPelaId(Integer autorId) {
-        Autor autor = this.banco.buscaPelaId(autorId);
-        return autor;
+        return entityManager.find(Autor.class, autorId);
     }
 
 }

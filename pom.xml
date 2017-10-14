@@ -17,34 +17,10 @@
 
         <!-- https://mvnrepository.com/artifact/javax.ejb/ejb-api -->
         <dependency>
-            <groupId>javax.ejb</groupId>
-            <artifactId>ejb-api</artifactId>
-            <version>3.0</version>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
             <scope>provided</scope>
-        </dependency>
-
-
-        <!-- Expression Language API (2.1 Maintenance Release) -->
-        <dependency>
-            <groupId>javax.el</groupId>
-            <artifactId>el-api</artifactId>
-            <version>2.2.1-b04</version>
-        </dependency>
-
-
-        <!-- This is the master POM file for Oracle's Implementation of the JSF 2.3 Specification. -->
-        <dependency>
-            <groupId>javax.faces</groupId>
-            <artifactId>javax.faces-api</artifactId>
-            <version>2.2</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Persistence Api -->
-        <dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>persistence-api</artifactId>
-            <version>1.0.2</version>
         </dependency>
 
         <dependency>

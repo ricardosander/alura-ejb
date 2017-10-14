@@ -5,20 +5,21 @@ import java.util.List;
 import br.com.caelum.livraria.modelo.Livro;
 
 import javax.ejb.Stateless;
-import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 @Stateless
 public class LivroDao {
 
-    @Inject
-    private Banco banco;
+    @PersistenceContext
+    private EntityManager entityManager;
 
     public void salva(Livro livro) {
-        banco.save(livro);
+        entityManager.persist(livro);
     }
 
     public List<Livro> todosLivros() {
-        return banco.listaLivros();
+        return entityManager.createQuery("select l from Livro l", Livro.class).getResultList();
     }
 
 }

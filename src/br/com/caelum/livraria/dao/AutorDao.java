@@ -5,11 +5,12 @@ import java.util.List;
 import br.com.caelum.livraria.modelo.Autor;
 
 import javax.annotation.PostConstruct;
-import javax.ejb.Stateless;
+import javax.ejb.*;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Stateless
+@TransactionManagement(TransactionManagementType.CONTAINER)//padrão, opcional.
 public class AutorDao {
 
     @PersistenceContext
@@ -20,6 +21,7 @@ public class AutorDao {
         System.out.println("[INFO] " + this.getClass().getName() + " criado!");
     }
 
+    @TransactionAttribute(TransactionAttributeType.MANDATORY)//necessita que, quem chamou, garanta uma transação.
     public void salva(Autor autor) {
 
         System.out.println("[INFO] salvando autor " + autor.getNome() + ".");
